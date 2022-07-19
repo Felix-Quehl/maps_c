@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "stdio.h": "c",
+        "limits": "c",
+        "*.tcc": "c",
+        "math.h": "c",
+        "download.h": "c"
+    },
+    "C_Cpp.default.includePath": [
+        "./includes"
+    ]
+}

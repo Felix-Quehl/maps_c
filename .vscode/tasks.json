@@ -1,0 +1,53 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "purge",
+            "type": "shell",
+            "command": "rm",
+            "args": [
+                "./cache/*"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "clean",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "clean"
+            ]
+        },
+        {
+            "label": "build",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "command": "make",
+            "args": [
+                "debug",
+                "-j",
+                "$(nproc)"
+            ],
+            "dependsOn": "clean"
+        },
+        {
+            "label": "merge",
+            "type": "shell",
+            "command": "montage",
+            "args": [
+                "-mode",
+                "concatenate",
+                "-tile",
+                "10x",
+                "./cache/*.png",
+                "out.png"
+            ],
+            "problemMatcher": []
+        }
+    ]
+}
